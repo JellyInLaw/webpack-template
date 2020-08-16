@@ -6,7 +6,7 @@
     "url": "https://github.com/JellyInLaw/webpack-2020"
   },
   "description": "webpack-template",
-  "main": "index.js",
+  "private": "true",
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production"

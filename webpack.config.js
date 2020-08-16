@@ -10,7 +10,7 @@ module.exports = {
     analytics: "./analytics.js",
   },
   output: {
-    filename: "[name].[contenthash].js",
+    filename: "js/[name].[contenthash].js",
     path: path.resolve(__dirname, "dist"),
   },
   plugins: [
@@ -23,8 +23,20 @@ module.exports = {
   module: {
     rules: [
       { test: /\.css$/, use: ["style-loader", "css-loader"] },
-      { test: /\.(png|jpeg|svg|gif)$/, use: ["file-loader"] },
-      { test: /\.(eot|woff|woff2|ttf)$/, use: ["file-loader"] },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        loader: "file-loader",
+        options: {
+          outputPath: "img",
+        },
+      },
+      {
+        test: /\.(ttf|woff|woff2|eot)$/,
+        loader: "file-loader",
+        options: {
+          outputPath: "fonts",
+        },
+      },
     ],
   },
 };
