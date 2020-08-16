@@ -1,5 +1,8 @@
+@import "~normalize.css";
+@import "./utils/fonts.css";
 body {
   background-color: cornsilk;
+  font-family: "Quicksand";
 }
 
 .container {
@@ -13,7 +16,7 @@ h1 {
 }
 
 .logo {
-  background-image: url("../assets/webpack.svg");
+  background-image: url("../img/webpack.svg");
   background-size: cover;
   width: 200px;
   height: 220px;
