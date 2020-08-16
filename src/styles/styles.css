@@ -1,0 +1,21 @@
+body {
+  background-color: cornsilk;
+}
+
+.container {
+  padding-top: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+.logo {
+  background-image: url("../assets/webpack.svg");
+  background-size: cover;
+  width: 200px;
+  height: 220px;
+  margin: 0 auto;
+}
