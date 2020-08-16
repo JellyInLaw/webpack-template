@@ -4,11 +4,14 @@
   "description": "webpack-template",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
   },
   "author": "maxim",
   "license": "MIT",
   "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^4.3.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   }
