@@ -25,10 +25,15 @@ module.exports = {
       { test: /\.css$/, use: ["style-loader", "css-loader"] },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
-        loader: "file-loader",
-        options: {
-          outputPath: "img",
-        },
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "img",
+            },
+          },
+        ],
       },
       {
         test: /\.(ttf|woff|woff2|eot)$/,
