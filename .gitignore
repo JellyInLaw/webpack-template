@@ -1,6 +1,5 @@
 node_modules/
-dist/
-node_modules
-dist
+dist/*
 dist/index.html
 .DS_Store
+dist/index.html

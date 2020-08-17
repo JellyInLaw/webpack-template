@@ -8,9 +8,9 @@
   "description": "webpack-template",
   "private": "true",
   "scripts": {
-    "dev": "webpack-dev-server --mode development",
-    "dist": "webpack --mode development",
-    "build": "webpack --mode production"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development",
+    "dist": "cross-env NODE_ENV=development webpack --mode development",
+    "build": "cross-env NODE_ENV=production webpack --mode production"
   },
   "author": "maxim",
   "license": "MIT",
@@ -22,7 +22,9 @@
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.10.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "style-loader": "^1.2.1",
+    "terser-webpack-plugin": "^4.1.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
