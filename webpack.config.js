@@ -44,8 +44,8 @@ const cssLoaders = (extra) => {
 module.exports = {
   context: path.resolve(__dirname, "src"),
   entry: {
-    main: "./index.js",
-    analytics: "./analytics.js",
+    main: ["@babel/polyfill", "./index.js"],
+    subMain: "./analytics.js",
   },
   output: {
     filename: "js/" + filename("js"),
@@ -66,6 +66,14 @@ module.exports = {
   ],
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: {
+          loader: "babel-loader",
+          options: { presets: ["@babel/preset-env"] },
+        },
+      },
       {
         test: /\.s[ac]ss$/i,
         use: cssLoaders("sass-loader"),
