@@ -1,7 +1,10 @@
 @import "~normalize.css";
 @import "./utils/fonts.css";
+@import "./utils/reset.scss";
+@import "./utils/vars.scss";
+
 body {
-  background-color: cornsilk;
+  background-color: $green;
   font-family: "Quicksand";
 }
 

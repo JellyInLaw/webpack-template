@@ -5,6 +5,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const sassLoader = require("sass-loader");
 
 //vars
 const isDev = process.env.NODE_ENV === "development";
@@ -19,6 +20,26 @@ const optimization = () => {
   return config;
 };
 
+const filename = (ext) => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`);
+
+const cssLoaders = (extra) => {
+  const loaders = [
+    {
+      loader: MiniCssExtractPlugin.loader,
+      options: {
+        hmr: isDev,
+      },
+    },
+    "css-loader",
+  ];
+
+  if (extra) {
+    loaders.push(extra);
+  }
+
+  return loaders;
+};
+
 //modules
 module.exports = {
   context: path.resolve(__dirname, "src"),
@@ -27,7 +48,7 @@ module.exports = {
     analytics: "./analytics.js",
   },
   output: {
-    filename: "js/[name].[hash].js",
+    filename: "js/" + filename("js"),
     path: path.resolve(__dirname, "dist"),
   },
   optimization: optimization(),
@@ -38,7 +59,7 @@ module.exports = {
       minify: { collapseWhitespace: isProd },
     }),
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({ filename: "[name].[contenthash].css" }),
+    new MiniCssExtractPlugin({ filename: filename("css") }),
     new CopyPlugin({
       patterns: [{ from: "./assets/favicon.ico", to: "" }],
     }),
@@ -46,16 +67,12 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.s[ac]ss$/i,
+        use: cssLoaders("sass-loader"),
+      },
+      {
         test: /\.css$/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: isDev,
-            },
-          },
-          "css-loader",
-        ],
+        use: cssLoaders(),
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
