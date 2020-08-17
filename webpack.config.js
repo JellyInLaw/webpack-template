@@ -53,6 +53,7 @@ module.exports = {
   },
   optimization: optimization(),
   devServer: { port: "8081", hot: isDev },
+  devtool: isDev ? "source-map" : "",
   plugins: [
     new HTMLWebpackPlugin({
       template: "./index.html",
