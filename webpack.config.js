@@ -53,7 +53,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
   },
   optimization: optimization(),
-  devServer: { port: "8081", hot: isDev },
+  devServer: { port: "8081" },
   devtool: isDev ? "source-map" : "",
   plugins: [
     new HTMLWebpackPlugin({
