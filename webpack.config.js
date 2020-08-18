@@ -45,7 +45,7 @@ module.exports = {
   context: path.resolve(__dirname, "src"),
   entry: {
     main: ["@babel/polyfill", "./index.js"],
-    subMain: "./analytics.js",
+    subMain: "./js/analytics.js",
   },
   output: {
     filename: "js/" + filename("js"),
@@ -62,7 +62,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({ filename: filename("css") }),
     new CopyPlugin({
-      patterns: [{ from: "./assets/favicon.ico", to: "" }],
+      patterns: [{ from: "./favicon.ico", to: "" }],
     }),
   ],
   module: {
