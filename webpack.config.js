@@ -6,6 +6,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const sassLoader = require("sass-loader");
+const pug = require("pug");
+const HtmlWebpackPugPlugin = require("html-webpack-pug-plugin");
 
 //vars
 const isDev = process.env.NODE_ENV === "development";
@@ -45,7 +47,6 @@ module.exports = {
   context: path.resolve(__dirname, "src"),
   entry: {
     main: ["@babel/polyfill", "./index.js"],
-    subMain: "./js/analytics.js",
   },
   output: {
     filename: "js/" + filename("js"),
@@ -56,9 +57,10 @@ module.exports = {
   devtool: isDev ? "source-map" : "",
   plugins: [
     new HTMLWebpackPlugin({
-      template: "./index.html",
+      template: "./pug/pages/index.pug",
       minify: { collapseWhitespace: isProd },
     }),
+    new HtmlWebpackPugPlugin(),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({ filename: filename("css") }),
     new CopyPlugin({
@@ -74,6 +76,10 @@ module.exports = {
           loader: "babel-loader",
           options: { presets: ["@babel/preset-env"] },
         },
+      },
+      {
+        test: /\.pug$/,
+        loader: "pug-loader",
       },
       {
         test: /\.s[ac]ss$/i,

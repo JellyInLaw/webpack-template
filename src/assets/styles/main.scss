@@ -3,29 +3,6 @@
 @import "./utils/reset.scss";
 @import "./utils/vars.scss";
 
-body {
-  background-color: $green;
-  font-family: "Quicksand";
-}
-
-.container {
-  padding-top: 2rem;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-h1 {
-  text-align: center;
-}
-
-.logo {
-  background-image: url("../img/webpack.svg");
-  background-size: cover;
-  width: 200px;
-  height: 220px;
-  margin: 0 auto;
-}
-
 //main
 html {
   line-height: $mainLineHeight;
