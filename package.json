@@ -1,5 +1,5 @@
 {
-  "name": "webpack-2020",
+  "name": "webpack-template",
   "version": "1.0.0",
   "repository": {
     "type": "git",
@@ -29,6 +29,8 @@
     "mini-css-extract-plugin": "^0.10.0",
     "node-sass": "^4.14.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
     "pug": "^3.0.0",
     "pug-loader": "^2.4.0",
     "sass-loader": "^9.0.3",
