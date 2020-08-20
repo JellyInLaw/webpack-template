@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JellyInLaw/webpack-2020"
+    "url": "https://github.com/JellyInLaw/webpack-template"
   },
   "description": "webpack-template",
   "private": "true",
@@ -13,7 +13,7 @@
     "dist": "cross-env NODE_ENV=development webpack --mode development",
     "build": "cross-env NODE_ENV=production webpack --mode production"
   },
-  "author": "maxim",
+  "author": "maxim <waiyyshik@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.11.1",
